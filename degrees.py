@@ -116,10 +116,12 @@ def shortest_path(source, target):
         if current_state == final_state:
             # List of pairs to get to path (will be converted to tuple)
             solution_path = []
-            # Adds pairs to solution_path
             while current_node.parent is not None:
-                solution_path.insert(0, (current_node.action, current_node.parent))
-            return tuple(solution_path)
+                # Adds pairs to solution_path
+                solution_path.insert(0, (current_node.action, current_node.parent.state))
+                # Resets current_node to parent
+                current_node = current_node.parent
+            return solution_path
 
         # Finds neighbors
         for neighbor_pair in neighbors_for_person(current_state):
