@@ -118,9 +118,10 @@ def shortest_path(source, target):
             solution_path = []
             while current_node.parent is not None:
                 # Adds pairs to solution_path
-                solution_path.insert(0, (current_node.action, current_node.parent.state))
+                solution_path.insert(0, (current_node.action, current_node.state))
                 # Resets current_node to parent
                 current_node = current_node.parent
+            print(solution_path)
             return solution_path
 
         # Finds neighbors
